@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {EmployeeList } from '../search/IEmployeeSearch';
 import {HomeService} from './home.service';
 import { FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,8 +16,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.queryField
-    .valueChanges
-    .subscribe(() =>this._homeService.getEmployeeList(null)
+      .valueChanges
+      .subscribe(() => this._homeService.getEmployeeList(this.queryField.value)
     .subscribe(
       (data) =>{
         this.results = data;
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
           console.log(err);
       }
       ));
+    
  
   }
   getEmployees(query):any[]{

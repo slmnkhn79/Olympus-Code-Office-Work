@@ -1,7 +1,6 @@
-<section class="filter-wrapper">
-  
- <ul class="filter-select">
-   <li class="filter-select-list"><img src="" alt="" width="50" height="50"><p class="artist-name"></p>
- <span class="tags"></span>
- </ul>
- </section>
+<mat-form-field>
+  <input type="text" matInput [formControl]="queryField" [matAutocomplete]="auto">
+</mat-form-field>
+<mat-autocomplete #auto="matAutocomplete">
+  <mat-option *ngFor="let option of " [value]="option">{{option.title}}</mat-option>
+</mat-autocomplete>

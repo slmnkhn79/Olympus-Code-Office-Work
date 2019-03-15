@@ -4,11 +4,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HomeService {
-  baseURL = 'https://jsonplaceholder.typicode.com/'
+  testbaseURL = 'https://jsonplaceholder.typicode.com/'
+  baseURL ='http://localhost:50673/api/'
   constructor(private http:HttpClient) {
 
    }
    getEmployeeList(query:string){
-    return this.http.get(this.baseURL+'todos');
+     return this.http.get(this.baseURL +'E360DataService/GetEmployeeList?name='+query);
    }
 }

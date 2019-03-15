@@ -8,14 +8,16 @@ import { SidebarResponsiveComponent } from './sidebar-responsive/sidebar-respons
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule }    from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
-import {ReactiveFormsModule} from '@angular/forms'
+import {ReactiveFormsModule} from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarResponsiveComponent,
     HomeComponent,
-    SearchComponent
+    SearchComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

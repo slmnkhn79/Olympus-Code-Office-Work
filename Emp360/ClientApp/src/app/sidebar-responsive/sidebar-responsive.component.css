@@ -1,4 +1,4 @@
-.sidebar-container {
+/*.sidebar-container {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -6,11 +6,12 @@
     bottom: 0;
     left: 0;
     right: 0;
+
   }
   
   .sidebar-is-mobile .sidebar-toolbar {
     position: fixed;
-    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+
     z-index: 2;
   }
   
@@ -19,14 +20,48 @@
   }
   
   .sidebar-sidenav-container {
-    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
     flex: 1;
   }
   
   .sidebar-is-mobile .sidebar-sidenav-container {
-    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
-       `<body>` to be our scrolling element for mobile layouts. */
     flex: 1 0 auto;
   }
-  
+
+  mat-sidenav{
+    width:200px;
+    background-color:#000000;
+    color:#ffffff
+  }*/
+
+.toolbar-fullscreen {
+  display: none;
+}
+
+.toolbar-filler {
+  flex: 1 1 auto
+}
+mat-sidenav {
+  background-color: #000000;
+  color: #ffffff;
+  text-align:right;
+}
+h1.component-title {
+  font-size:15px;
+  text-align: center;
+  width: 100%;
+}
+a.title-link {
+  padding:10px;
+  border-style: solid;
+  border-width: 1px;
+}
+img{
+  border-radius : 50%;
+}
+a.title-name {
+  font-size: 10px;
+  margin-right: 10px;
+}
+button{
+  background-color:#ffffff;
+}

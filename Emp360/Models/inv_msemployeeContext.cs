@@ -33,8 +33,8 @@ namespace Emp360.Models
                .AddJsonFile("appsettings.json")
                 .AddEnvironmentVariables(); ;
                 IConfiguration Configuration = builder.Build();
-                var connectionString = Configuration.GetConnectionString("inventoryConnection");
-                optionsBuilder.UseSqlServer(connectionString);
+                var inventoryConnection = Configuration.GetConnectionString("inventoryConnection");
+                optionsBuilder.UseSqlServer(inventoryConnection);
             }
         }
 

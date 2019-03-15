@@ -3,7 +3,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-sidebar-responsive',
-  templateUrl: './sidebar-responsive.component.html',
+  templateUrl: './sidebar-responsive - Copy.component.html',
   styleUrls: ['./sidebar-responsive.component.css']
 })
 export class SidebarResponsiveComponent implements OnInit ,OnDestroy{
