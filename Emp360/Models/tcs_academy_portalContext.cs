@@ -18,6 +18,7 @@ namespace Emp360.Models
             : base(options)
         {
         }
+        public virtual DbSet<TFactor_Competency_Backup> TFactorData { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var builder = new ConfigurationBuilder()
@@ -29,5 +30,12 @@ namespace Emp360.Models
             optionsBuilder.UseSqlServer(learningConnection);
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TFactor_Competency_Backup>(entity =>
+            {
+                entity.ToTable("TFactor_Competency_Backup");
+            });
+        }
     }
 }

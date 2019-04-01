@@ -1,6 +1,11 @@
 <mat-form-field>
-  <input type="text" matInput [formControl]="queryField" [matAutocomplete]="auto">
+  <h1>teste</h1>
+  <input class="form-control" type="text" matInput [matAutocomplete]="auto" [formControl]="queryField" >
 </mat-form-field>
-<mat-autocomplete #auto="matAutocomplete">
-  <mat-option *ngFor="let option of " [value]="option">{{option.title}}</mat-option>
+
+<mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+  <mat-option *ngFor="let user of (filteredOptions | async)" [value]="user.tcsID">
+    <span>{{ user.name }}</span>
+    <small> | ID: {{user.email}}</small>
+  </mat-option>
 </mat-autocomplete>

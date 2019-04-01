@@ -14,6 +14,7 @@ namespace Emp360.Controllers
     public class E360DataServiceController : ControllerBase
     {
         inv_msemployeeContext db = new inv_msemployeeContext();
+        tcs_academy_portalContext tb = new tcs_academy_portalContext();
         [HttpGet("[action]")]
         public List<Object> GetEmployeeList(string name)
         {
@@ -45,8 +46,16 @@ namespace Emp360.Controllers
 
 
             var currentEmployee = await db.AmPune.SingleAsync(a => a.Email == email);
+            int EmpID = Convert.ToInt32(currentEmployee.Id);
             var deskDetails = await db.DeskAllocationDetails.SingleAsync(a=> a.VId == currentEmployee.Gpmvid);
             var gpmDetails = await db.Gpmmaster.SingleAsync(a => a.Vid == currentEmployee.Gpmvid);
+            var competencyDetails = await tb.TFactorData.Where(a => a.EmpID == EmpID ).ToListAsync();
+            List<string> competencies = new List<string>();
+            foreach(TFactor_Competency_Backup comp in competencyDetails)
+            {
+                competencies.Add(comp.TFactor_Category);
+            }
+
             object result = new {
                 currentEmployee.Name,
                 currentEmployee.Email,
@@ -59,7 +68,8 @@ namespace Emp360.Controllers
                 deskDetails.SeatNo,
                 deskDetails.MsReportingManager,
                 gpmDetails.Gpmname,
-                
+                competencies
+
             };
             
             return result;
