@@ -1,14 +1,13 @@
 <div class="box mat-elevation-z2 ">
   <div class="container-1">
-    <span class="icon"><i class="fa fa-search"></i></span>
-    <input type="search" class="search" id="search" [formControl]="queryField" placeholder="Search..." [matAutocomplete]="auto" />
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let result of results |async" [value]="result.id">
-        <span>{{result.title}}</span>|
-       
+      <span class="icon"><i class="fa fa-search"></i></span>
+      <input class="container-1" type="search" id="search" matInput [matAutocomplete]="auto" [formControl]="queryField">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let user of (filteredOptions | async)" [value]="user.name">
+        <span>{{ user.name }}</span>
+        <small> | ID: {{user.email}}</small>
       </mat-option>
     </mat-autocomplete>
-    <!--<app-search></app-search>-->
   </div>
 </div>
 
